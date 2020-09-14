@@ -1,0 +1,39 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.TodoApp label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.add-new-todo {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.add-new-todo button {
+  margin-left: 10px;
+}
+
+.find-todo label {
+  margin-right: 10px;
+}
+
+.loading {
+  margin-left: 10px;
+}
+
+.todo-container {
+  list-style: none;
+}
+
+.todo-container li {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.completed-todo {
+  text-decoration: line-through;
+}
