@@ -4,11 +4,10 @@ const useToggle = (initState = false) => {
   const [status, setStatus] = useState(initState);
 
   const toggle = useCallback(() => {
-    console.log(status);
     setStatus((status) => {
       return !status;
     });
-  }, [status]);
+  }, []);
 
   return [status, toggle];
 };

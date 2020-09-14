@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const TodoList = ({ data, searchTerm, onToggle, completed }) => {
+  useEffect(() => {
+    console.log(completed);
+  }, [completed]);
+
   return (
     <ul className="todo-container">
       {data
         .filter(
           (todo) =>
-            !searchTerm ||
-            (todo.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-              todo.completed === completed)
+            (!searchTerm ||
+              todo.title.toLowerCase().includes(searchTerm.toLowerCase())) &&
+            (!completed || todo.completed === completed)
         )
         .map((todo) => {
           return (
