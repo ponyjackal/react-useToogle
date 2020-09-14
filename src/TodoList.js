@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 
 const TodoList = ({ data, searchTerm, onToggle, completed }) => {
   useEffect(() => {
-    console.log(completed);
-  }, [completed]);
+    console.log("onToggle");
+  });
 
   return (
     <ul className="todo-container">

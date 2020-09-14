@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import TodoList from "./TodoList";
 import useDebounce from "./useDebounce";
 import useToggle from "./useToggle";
@@ -77,22 +77,26 @@ const App = () => {
     }
 
     newTodo.current.value = "";
+    newTodo.current.focus();
   };
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const onToggle = (id) => {
-    const updated = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-      }
-      return todo;
-    });
+  const onToggle = useCallback(
+    (id) => {
+      const updated = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
 
-    setTodos(updated);
-  };
+      setTodos(updated);
+    },
+    [todos]
+  );
 
   return (
     <div class="TodoApp">
