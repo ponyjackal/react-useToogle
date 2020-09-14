@@ -1,42 +1,58 @@
-React hook for toggle state.
-Installation
+## react-use-toggle
 
-Using npm:
+## Description
 
-$ npm install --save react-use-toggle
+Simple Todo App to let you add and find your own tasks.
+- Used custom react hooks for useDebounce and useToggle.
+- Used React useRef to focus on input after add a new task
+- Used React useCallback to optimize the todoList component
+- Make TodoList component as a presentational component
 
-Using yarn:
+## Installation
 
-$ yarn add react-use-toggle
+Here is codesandbox for this repo
+https://codesandbox.io/s/pedantic-saha-tg69v
 
-Since this module uses React's new Hooks feature, to try this out you'll need to install at least version 16.8.0 of react and react-dom:
+or git clone https://github.com/PonyJackal/react-useToogle
 
-$ yarn add react@^16.8.0 react-dom@^16.8.0
+## Usage
 
-Usage
+- useToggle
 
-import React from 'react';
-import useToggle from 'react-use-toggle';
+      const useToggle = (initState = false) => {
+        const [status, setStatus] = useState(initState);
 
-function Example() {
-  const [checked, toggle] = useToggle(false);
+        const toggle = useCallback(() => {
+          setStatus((status) => {
+            return !status;
+          });
+        }, []);
 
-  return (
-    <label>
-      <input checked={checked} onChange={toggle} type={'checkbox'} />
-      Are you hooked?
-    </label>
-  );
-}
+        return [status, toggle];
+      };
+      
+ - useDebouce
+ 
+         const useDebounce = (searchTerm, delay) => {
+          const [debouncedValue, setDebouncedValue] = useState(searchTerm);
 
-API
+          useEffect(() => {
+            const handler = setTimeout(() => {
+              setDebouncedValue(searchTerm);
+            }, delay);
 
-useToggle(initialState?: boolean): [boolean, () => void]
+            return () => {
+              clearTimeout(handler);
+            };
+          }, [searchTerm, delay]);
 
-Receives an optional initial state and returns a tuple with the current state and a function to toggle the state.
-Contributing
-
-Please feel free to submit any issues or pull requests.
-License
-
-MIT
+          return debouncedValue;
+        };
+        
+ ## Contribution
+ 
+ Please feel free to submit any issues or pull requests.
+ 
+ ## License
+ 
+ MIT
