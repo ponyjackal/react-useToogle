@@ -37,3 +37,7 @@
 .completed-todo {
   text-decoration: line-through;
 }
+
+.tickbox input {
+  margin-right: 10px;
+}
