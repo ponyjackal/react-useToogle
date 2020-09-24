@@ -14,11 +14,11 @@ const SearchTodo = ({ dispatch }) => {
 
     useEffect(() => {
         dispatch(findToggle(findCompleted))
-    }, [findCompleted])
+    }, [findCompleted, dispatch])
 
     useEffect(() => {
         dispatch(searchTodo(debouncedSearch))
-    }, [debouncedSearch])
+    }, [debouncedSearch, dispatch])
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value)
