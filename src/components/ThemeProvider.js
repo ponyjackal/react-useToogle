@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ThemeContext, themes } from './../common/theme-context'
+import { ThemeContext, themes } from './../context/theme-context'
 import useToggle from './../lib/useToggle'
 
 const ThemeProvider = ({ children }) => {

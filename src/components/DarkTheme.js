@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from './../common/theme-context'
+import { ThemeContext } from './../context/theme-context'
 
 const DarkTheme = () => {
 
